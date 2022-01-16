@@ -29,6 +29,10 @@ export default new Vuex.Store({
         DELETE_TASK(state, id) {
             state.tasks = state.tasks.filter(task => task.id !== id)
         },
+        CLICK_TASK(state, id) {
+            let task = state.tasks.filter((task) => task.id === id)[0];
+            task.done = !task.done;
+        },
 
     },
     actions: {
