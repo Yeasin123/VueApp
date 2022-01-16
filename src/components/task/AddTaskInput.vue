@@ -30,7 +30,7 @@ export default {
         this.newTask = "";
       }
       else {
-        console.log('Error');
+        this.$store.commit('SHOW_SACKBER',' Opps Input field is Empty!')
       }
       
     },

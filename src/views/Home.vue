@@ -5,12 +5,7 @@
 
     <task-list v-if="tasks.length"></task-list>
 
-    <div v-else class="notask">
-      <v-btn icon>
-        <v-icon color="red lighten-1">mdi-alert</v-icon>
-      </v-btn>
-      <div class="text-h5">No Task</div>
-    </div>
+   <no-task v-else></no-task>
 
   </div>
 </template>
@@ -18,12 +13,14 @@
 <script>
 import { mapState } from "vuex";
 import AddTaskInput from '../components/task/AddTaskInput.vue';
+import NoTask from '../components/task/NoTask.vue';
 import TaskList from '../components/task/TaskList.vue';
 export default {
   name: "Home",
   components: {
     AddTaskInput,
-    TaskList
+    TaskList,
+    NoTask
   },
  computed: {
     ...mapState(["tasks"]),

@@ -30,10 +30,9 @@
 
     <v-app-bar
       app
-      color="primary"
       dark
       prominent
-      src="https://picsum.photos/1920/1080?random"
+      src="@/assets/logo.png"
     >
       <template v-slot:img="{ props }">
         <v-img
@@ -53,22 +52,21 @@
       </v-btn>
 
       <v-btn icon>
-        <v-icon>mdi-heart</v-icon>
-      </v-btn>
-
-      <v-btn icon>
         <v-icon>mdi-dots-vertical</v-icon>
       </v-btn>
     </v-app-bar>
 
     <v-main>
+     
       <router-view></router-view>
     </v-main>
+     <BaseNotification />
   </v-app>
 </template>
 
 <script>
   export default {
+  components: {  },
     data () {
       return {
         drawer:null,
