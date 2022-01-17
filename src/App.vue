@@ -1,13 +1,14 @@
 <template>
   <v-app id="inspire">
-    <v-navigation-drawer
-      v-model="drawer"
-      app
-    >
+    <v-navigation-drawer v-model="drawer" app>
       <v-list-item>
         <v-list-item-content>
-          <v-list-item-title class="text-h6 text-center"> Vue App </v-list-item-title>
-          <v-list-item-subtitle class="text-center"> App make using Vue&Vuetify </v-list-item-subtitle>
+          <v-list-item-title class="text-h6 text-center">
+            Vue App
+          </v-list-item-title>
+          <v-list-item-subtitle class="text-center">
+            App make using Vue&Vuetify
+          </v-list-item-subtitle>
         </v-list-item-content>
       </v-list-item>
 
@@ -26,14 +27,7 @@
       </v-list>
     </v-navigation-drawer>
 
-
-
-    <v-app-bar
-      app
-      dark
-      prominent
-      src="@/assets/logo.png"
-    >
+    <v-app-bar app dark prominent src="@/assets/logo.png">
       <template v-slot:img="{ props }">
         <v-img
           v-bind="props"
@@ -57,24 +51,23 @@
     </v-app-bar>
 
     <v-main>
-     
       <router-view></router-view>
     </v-main>
-     <BaseNotification />
+    <BaseNotification />
   </v-app>
 </template>
 
 <script>
-  export default {
-  components: {  },
-    data () {
-      return {
-        drawer:null,
-        items: [
-          { title: 'Home', icon: 'mdi-view-dashboard',to:"/" },
-          { title: 'About', icon: 'mdi-account-check',to:"/about" },
-        ],
-      }
-    },
-  }
+export default {
+  components: {},
+  data() {
+    return {
+      drawer: null,
+      items: [
+        { title: "Home", icon: "mdi-view-dashboard", to: "/" },
+        { title: "About", icon: "mdi-account-check", to: "/about" },
+      ],
+    };
+  },
+};
 </script>

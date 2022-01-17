@@ -13,26 +13,30 @@
           <v-list-item-title>{{ task.title }}</v-list-item-title>
         </v-list-item-content>
         <v-list-item-action>
-          <v-btn icon @click="deleteTask(task.id)">
+          <!-- <v-btn icon @click="dialogs.delete = true">
             <v-icon color="red lighten-1">mdi-delete</v-icon>
-          </v-btn>
+          </v-btn> -->
+             <maneu-list :task="task"></maneu-list>
         </v-list-item-action>
+     
       </template>
     </v-list-item>
     <v-divider></v-divider>
+    
   </div>
 </template>
 
 <script>
+import ManeuList from "./ManeuList.vue";
 export default {
-    props:['task'],
-    methods:{
-         deleteTask(task) {
-        this.$emit('delete',task)
-      }
-    }
+  components: { ManeuList },
+  props: ["task"],
+  data() {
+    return {
+      
+    };
+  },
 };
 </script>
 
-<style>
-</style>
+<style></style>
