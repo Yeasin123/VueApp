@@ -30,9 +30,9 @@
       @close="dialogs.delete = false"
     />
     <BaseEditDialog 
-    v-if="dialogs.delete" 
+    v-if="dialogs.edit" 
     :task="task" 
-    @close="dialogs.delete = false"
+    @close="dialogs.edit = false"
     />
   </div>
 </template>
@@ -48,7 +48,7 @@ export default {
         color: "success",
         click() {
           console.log("Edit");
-          this.dialogs.delete = true;
+          this.dialogs.edit = true;
         },
       },
       {
@@ -71,6 +71,7 @@ export default {
     ],
     dialogs: {
       delete: false,
+      edit: false,
     },
   }),
   methods: {

@@ -10,7 +10,10 @@
         </v-card-title>
         <v-card-text> 
           Edit task Title 
-           <v-text-field v-model="newTask"> </v-text-field>
+           <v-text-field
+            v-model.trim="newTask"
+           @keyup.enter="updateTask(task.id)"
+           > </v-text-field>
           </v-card-text>
         <v-card-actions>
           <v-spacer></v-spacer>
@@ -25,7 +28,8 @@
           <v-btn
             color="success darken-1"
             text
-            @click="updateTask()"
+            @click="updateTask(task.id)"
+            :disabled="taskFieldInvalid"
           >
             Update
           </v-btn>
@@ -43,14 +47,26 @@ export default {
      newTask:null
    }
  },
+ computed:{
+   taskFieldInvalid() {
+     return !this.newTask || this.newTask == this.task.title
+   }
+ },
   methods: {
-    updateTask() {
+    updateTask(id) {
       let updatetask = {
-        id:this.task.id,
+        id:id,
         title:this.newTask
       }
-       this.$store.dispatch('updateTask',updatetask)
-       this.$emit('close')
+      if(!this.taskFieldInvalid) {
+        this.$store.dispatch('updateTask',updatetask)
+        this.$emit('close')
+      }
+      else{
+        this.$store.commit("SHOW_SACKBER", "Nothing to change");
+         this.$emit('close')
+      }
+       
     }
   },
   mounted() {
