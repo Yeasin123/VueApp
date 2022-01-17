@@ -1,5 +1,5 @@
 <template>
-  <v-snackbar v-model="snackbar.show" top timeout="2000">
+  <v-snackbar v-model="snackbar.show" top timeout="3000">
     {{ snackbar.text }}
 
     <template v-slot:action="{ attrs }">

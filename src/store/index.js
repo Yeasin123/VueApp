@@ -9,16 +9,19 @@ export default new Vuex.Store({
                 id: 1,
                 title: "Wake Up",
                 done: false,
+                dueDate: '2022-1-15'
             },
             {
                 id: 2,
                 title: "Get Apple",
                 done: false,
+                dueDate: '2022-1-16'
             },
             {
                 id: 3,
                 title: "Eat Apple",
                 done: false,
+                dueDate: '2022-1-17'
             },
         ],
         snackbar: {
@@ -49,8 +52,12 @@ export default new Vuex.Store({
             }, timeout);
         },
         UPDATE_TASK(state, newtasks) {
-            let index = state.tasks.filter((task) => task.id === newtasks.id)[0]
-            index.title = newtasks.title
+            let index = state.tasks.findIndex((task) => task.id === newtasks.id)
+            state.tasks[index].title = newtasks.title
+        },
+        UPDATE_DATEDUE(state, dateTask) {
+            let index = state.tasks.findIndex((taskdate) => taskdate.id === dateTask.id)
+            state.tasks[index].dueDate = dateTask.dueDate
         }
     },
     actions: {
@@ -64,8 +71,12 @@ export default new Vuex.Store({
         },
         deleteTask({ commit }, id) {
             commit("DELETE_TASK", id);
-            commit("SHOW_SACKBER", "Delete Task");
+            commit("SHOW_SACKBER", "Task Delete");
         },
+        updateDateTask({ commit }, dateTask) {
+            commit("UPDATE_DATEDUE", dateTask);
+            commit("SHOW_SACKBER", "Task Due Date Updated");
+        }
     },
     modules: {},
 });
