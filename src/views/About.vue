@@ -1,23 +1,10 @@
 <template>
   <div class="about pa-8">
-    <h1>This is an about page</h1>
+    <h3>About this mini project</h3>
+    <p>Use Vue.js,Vuetify,VueX,VueRouter</p>
     <p>
-      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptates iste
-      accusantium libero ipsum repellat veritatis nemo recusandae quae debitis
-      architecto, animi odio accusamus error laboriosam veniam vero, sed
-      repudiandae tempore?
+      This is a simple vue app using vuejs&vuetify.Task and date can
+      add,edit,delete,update
     </p>
-    <h4>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, enim!
-    </h4>
-    <p>
-      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deleniti saepe
-      praesentium animi. Eius, saepe doloribus alias earum amet culpa id!
-    </p>
-    <h4>
-      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reprehenderit
-      ullam expedita excepturi sunt perferendis ex! Deleniti at asperiores
-      molestias, dolorem facilis unde ullam iure quidem.
-    </h4>
   </div>
 </template>

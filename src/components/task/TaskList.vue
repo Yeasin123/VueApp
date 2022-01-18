@@ -3,7 +3,6 @@
     <task-list-item
       v-for="task in SearchFilter"
       :key="task.id"
-  
       :task="task"
     ></task-list-item>
   </v-list>
@@ -17,7 +16,7 @@ export default {
   components: { TaskListItem },
   computed: {
     ...mapState(["tasks"]),
-    ...mapGetters(['SearchFilter'])
+    ...mapGetters(["SearchFilter"]),
   },
   methods: {
     deleteTask(id) {

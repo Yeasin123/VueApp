@@ -29,15 +29,15 @@
       :task="task"
       @close="dialogs.delete = false"
     />
-    <BaseEditDialog 
-    v-if="dialogs.edit" 
-    :task="task" 
-    @close="dialogs.edit = false"
+    <BaseEditDialog
+      v-if="dialogs.edit"
+      :task="task"
+      @close="dialogs.edit = false"
     />
-    <BaseDatePickerDialog 
-    v-if="dialogs.dueDate"
-     :task="task" 
-     @close="dialogs.dueDate= false"
+    <BaseDatePickerDialog
+      v-if="dialogs.dueDate"
+      :task="task"
+      @close="dialogs.dueDate = false"
     />
   </div>
 </template>
@@ -46,8 +46,7 @@
 export default {
   props: ["task"],
   data: () => ({
-    
-     dialogs: {
+    dialogs: {
       delete: false,
       edit: false,
       dueDate: false,
@@ -67,7 +66,7 @@ export default {
         icon: "mdi-calendar-range",
         color: "primary",
         click() {
-         this.dialogs.dueDate = true;
+          this.dialogs.dueDate = true;
           console.log("due");
         },
       },

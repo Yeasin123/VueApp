@@ -24,7 +24,7 @@ export default {
         id: Date.now(),
         title: this.newTask,
         done: false,
-        dueDate:null
+        dueDate: null,
       };
       if (this.newTask !== "") {
         this.$store.dispatch("addTask", addItem);
@@ -37,5 +37,4 @@ export default {
 };
 </script>
 
-<style>
-</style>
+<style></style>

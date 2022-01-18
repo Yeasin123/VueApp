@@ -15,27 +15,29 @@
         </v-list-item-content>
 
         <v-icon small class="pr-1" v-if="task.dueDate">mdi-calendar</v-icon>
-        <v-list-item-action-text v-if="task.dueDate"> {{ task.dueDate | niceDate }}</v-list-item-action-text>
+        <v-list-item-action-text v-if="task.dueDate">
+          {{ task.dueDate | niceDate }}</v-list-item-action-text
+        >
 
         <v-list-item-action>
           <maneu-list :task="task"></maneu-list>
         </v-list-item-action>
       </template>
     </v-list-item>
-    <v-divider></v-divider>
+    <!-- <v-divider></v-divider> -->
   </div>
 </template>
 
 <script>
 import ManeuList from "./ManeuList.vue";
-import { format } from 'date-fns'
+import { format } from "date-fns";
 export default {
   components: { ManeuList },
   props: ["task"],
-  filters:{
+  filters: {
     niceDate(value) {
-     return  format(new Date(value), 'MMM d y')
-    }
+      return format(new Date(value), "MMM d y");
+    },
   },
   data() {
     return {};

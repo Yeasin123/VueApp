@@ -1,11 +1,10 @@
 <template>
   <v-app id="inspire">
-
     <v-navigation-drawer v-model="drawer" app>
       <v-list-item>
         <v-list-item-content>
           <v-list-item-title class="text-h6 text-center">
-            Vue App 
+            Vue App
           </v-list-item-title>
           <v-list-item-subtitle class="text-center">
             App make using Vue&Vuetify
@@ -28,7 +27,7 @@
       </v-list>
     </v-navigation-drawer>
 
-    <v-app-bar app dark prominent src="@/assets/logo.png">
+    <v-app-bar app dark prominent height="150" src="@/assets/logo.png">
       <template v-slot:img="{ props }">
         <v-img
           v-bind="props"
@@ -37,29 +36,35 @@
       </template>
       <v-container>
         <v-row>
-          <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
+          <v-app-bar-nav-icon @click="drawer = !drawer" class="bar_icon"></v-app-bar-nav-icon>
+          <v-divider></v-divider>
+          <search-input></search-input>
         </v-row>
         <v-row>
-          <v-toolbar-title  class="ml-3">Vue App</v-toolbar-title>
+          <v-toolbar-title class=" text-h5 ml-2">Vue App</v-toolbar-title>
+        </v-row>
+        <v-row>
+          <date-time-component></date-time-component>
         </v-row>
       </v-container>
-
-         <search-input></search-input>
-      
     </v-app-bar>
 
     <v-main>
-      <router-view></router-view>
+      <v-container>
+         <router-view></router-view>
+      </v-container>
+     
     </v-main>
     <BaseNotification />
   </v-app>
 </template>
 
 <script>
+import DateTimeComponent from "./components/task/DateTimeComponent.vue";
 
-import SearchInput from './components/task/SearchInput.vue';
+import SearchInput from "./components/task/SearchInput.vue";
 export default {
-  components: {SearchInput},
+  components: { SearchInput, DateTimeComponent },
   data() {
     return {
       drawer: null,
@@ -69,6 +74,14 @@ export default {
       ],
     };
   },
- 
 };
 </script>
+<style scoped>
+  /* .header_container{
+    padding: 12px 0px !important;
+  } */
+  .bar_icon{
+    margin-left:-7px
+  }
+  
+</style>
