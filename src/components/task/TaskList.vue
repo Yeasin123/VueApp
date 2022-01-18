@@ -1,7 +1,7 @@
 <template>
   <v-list flat class="pt-0" v-if="tasks.length">
     <task-list-item
-      v-for="task in tasks"
+      v-for="task in SearchFilter"
       :key="task.id"
   
       :task="task"
@@ -10,13 +10,14 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
+import { mapGetters, mapState } from "vuex";
 import TaskListItem from "./TaskListItem.vue";
 
 export default {
   components: { TaskListItem },
   computed: {
     ...mapState(["tasks"]),
+    ...mapGetters(['SearchFilter'])
   },
   methods: {
     deleteTask(id) {

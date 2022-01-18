@@ -1,10 +1,11 @@
 <template>
   <v-app id="inspire">
+
     <v-navigation-drawer v-model="drawer" app>
       <v-list-item>
         <v-list-item-content>
           <v-list-item-title class="text-h6 text-center">
-            Vue App
+            Vue App 
           </v-list-item-title>
           <v-list-item-subtitle class="text-center">
             App make using Vue&Vuetify
@@ -34,20 +35,17 @@
           gradient="to top right, rgba(55,236,186,.7), rgba(25,32,72,.7)"
         ></v-img>
       </template>
+      <v-container>
+        <v-row>
+          <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
+        </v-row>
+        <v-row>
+          <v-toolbar-title  class="ml-3">Vue App</v-toolbar-title>
+        </v-row>
+      </v-container>
 
-      <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
-
-      <v-toolbar-title>Vue App</v-toolbar-title>
-
-      <v-spacer></v-spacer>
-
-      <v-btn icon>
-        <v-icon>mdi-magnify</v-icon>
-      </v-btn>
-
-      <v-btn icon>
-        <v-icon>mdi-dots-vertical</v-icon>
-      </v-btn>
+         <search-input></search-input>
+      
     </v-app-bar>
 
     <v-main>
@@ -58,8 +56,10 @@
 </template>
 
 <script>
+
+import SearchInput from './components/task/SearchInput.vue';
 export default {
-  components: {},
+  components: {SearchInput},
   data() {
     return {
       drawer: null,
@@ -69,5 +69,6 @@ export default {
       ],
     };
   },
+ 
 };
 </script>

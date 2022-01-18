@@ -28,6 +28,7 @@ export default new Vuex.Store({
             show: false,
             text: "",
         },
+        searchItem: null,
     },
     mutations: {
         ADD_TASK(state, task) {
@@ -58,6 +59,9 @@ export default new Vuex.Store({
         UPDATE_DATEDUE(state, dateTask) {
             let index = state.tasks.findIndex((taskdate) => taskdate.id === dateTask.id)
             state.tasks[index].dueDate = dateTask.dueDate
+        },
+        SET_SEARCH(state, value) {
+            state.searchItem = value
         }
     },
     actions: {
@@ -76,6 +80,15 @@ export default new Vuex.Store({
         updateDateTask({ commit }, dateTask) {
             commit("UPDATE_DATEDUE", dateTask);
             commit("SHOW_SACKBER", "Task Due Date Updated");
+        }
+    },
+    getters: {
+        SearchFilter(state) {
+            if (!state.searchItem) {
+                return state.tasks
+            }
+            return state.tasks.filter((task) => task.title.toLowerCase().includes(state.searchItem.toLowerCase()))
+
         }
     },
     modules: {},
